@@ -1,7 +1,6 @@
 package constants;
 
 public class Constants {
-//	public static final String ENCODING_UTF8 = "utf-8";
 	public static final String BASE_URL = "http://openapi.naver.com/search?key=ef06abefc8ad9644eb9956e7b9d6882d&target=local&";
 	
 	public static final String STRING_ITEM = "item";

@@ -35,10 +35,9 @@ import model.Item;
 public class Driver {
 	public static void main(String args[]) {
 		try {
-			
+
 			DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
 			DocumentBuilder b = f.newDocumentBuilder();
-//			String s = makeUrl();
 			Document doc = b.parse(makeUrl());
 
 			doc.getDocumentElement().normalize();
@@ -61,7 +60,7 @@ public class Driver {
 				System.out.println("mapx : " + item.getMapx());
 				System.out.println("mapy : " + item.getMapy());
 			}
-			
+
 			makeTxtFile(handler.getItemList());
 
 		} catch (IOException e) {
@@ -75,9 +74,9 @@ public class Driver {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static String makeUrl() {
-		
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("start ?");
 		String start = scanner.nextLine();
@@ -86,7 +85,7 @@ public class Driver {
 		System.out.print("query ?");
 		String query = scanner.nextLine();
 		query = query.replace(" ", "%20");
-		
+
 		String url = Constants.BASE_URL + "start=" + start + "&display=" + display + "&query=" + query;
 		byte[] encodingUrl = null;
 		try {
@@ -95,7 +94,7 @@ public class Driver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return new String(encodingUrl);
 	}
 
@@ -114,11 +113,12 @@ public class Driver {
 
 		return null;
 	}
-	
+
 	private static void makeTxtFile(List<Item> itemList) throws IOException {
 		List<String> lines = new ArrayList<>();
 		for (Item item : itemList) {
-			String line = item.getTitle() +", " + item.getTelephone() + ", " + item.getAddress() + ", " + item.getRoadAddress() + ", " + item.getMapx() + ", " + item.getMapy();
+			String line = item.getTitle() + ", " + item.getTelephone() + ", " + item.getAddress() + ", "
+					+ item.getRoadAddress() + ", " + item.getMapx() + ", " + item.getMapy();
 			lines.add(line);
 		}
 		Path file = Paths.get("the-file-name.txt");
