@@ -86,10 +86,10 @@ public class ItemHandler extends DefaultHandler {
 			position = "";
 		}
 
-		if (position.equals(Constants.STRING_ROADADDRESS)) {
-			item.setRoadAddress((new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim());
-			position = "";
-		}
+//		if (position.equals(Constants.STRING_ROADADDRESS)) {
+//			item.setRoadAddress((new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim());
+//			position = "";
+//		}
 
 		if (position.equals(Constants.STRING_MAPX)) {
 			item.setMapx((new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim());

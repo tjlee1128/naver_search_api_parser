@@ -7,7 +7,7 @@ public class Item {
 	private String description;
 	private String telephone;
 	private String address;
-	private String roadAddress;
+//	private String roadAddress;
 	private String mapx;
 	private String mapy;
 
@@ -59,13 +59,13 @@ public class Item {
 		this.address = address;
 	}
 
-	public String getRoadAddress() {
-		return roadAddress;
-	}
-
-	public void setRoadAddress(String roadAddress) {
-		this.roadAddress = roadAddress;
-	}
+//	public String getRoadAddress() {
+//		return roadAddress;
+//	}
+//
+//	public void setRoadAddress(String roadAddress) {
+//		this.roadAddress = roadAddress;
+//	}
 
 	public String getMapx() {
 		return mapx;
