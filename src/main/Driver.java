@@ -45,6 +45,8 @@ public class Driver {
 	private static String start;
 	private static String display;
 	private static String query;
+	private static int regioncode;
+	private static int categorycode;
 
 	public static void main(String args[]) {
 		try {
@@ -120,6 +122,18 @@ public class Driver {
 		display = scanner.nextLine();
 		System.out.print("query ?");
 		query = scanner.nextLine();
+		
+		if (query.contains("석촌동")) {
+			regioncode = 5;
+		} else if (query.contains("잠실동")) {
+			regioncode = 6;
+		}
+		
+		if (query.contains("치킨")) {
+			categorycode = 1;
+		} else if (query.contains("중화요리")) {
+			categorycode = 3;
+		}
 
 		// encoding
 		String encodeResult = null;
@@ -157,7 +171,7 @@ public class Driver {
 			if (item.getTelephone() == null) {
 				continue;
 			}
-			String line = item.getTitle() + ", " + item.getTelephone() + ", " + item.getAddress() + ", " + item.getMapx() + ", " + item.getMapy();
+			String line = regioncode + "," + categorycode + "," + item.getTitle() + ", " + item.getTelephone() + ", " + item.getAddress() + ", " + item.getMapx() + ", " + item.getMapy();
 			lines.add(line);
 		}
 		Path file = Paths.get(start + "-" + display + "-" + query + ".txt");

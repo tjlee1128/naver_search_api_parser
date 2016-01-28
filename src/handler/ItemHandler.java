@@ -57,7 +57,6 @@ public class ItemHandler extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		// TODO Auto-generated method stub
-
 		if (qName.equals(Constants.STRING_ITEM)) {
 			itemList.add(item);
 		}
@@ -70,6 +69,7 @@ public class ItemHandler extends DefaultHandler {
 		if (item == null) {
 			return;
 		}
+		
 
 		if (position.equals(Constants.STRING_TITLE)) {
 			item.setTitle((new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim());
@@ -82,7 +82,15 @@ public class ItemHandler extends DefaultHandler {
 		}
 
 		if (position.equals(Constants.STRING_ADDRESS)) {
-			item.setAddress((new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim());
+			String string = (new String(ch, start, length).replace("<b>", "").replace("</b>", "")).trim();
+			String commaString = null;
+			
+			if (string.contains(",")) {
+				commaString = string.replace(",", " ");
+			} else {
+				commaString = string;
+			}
+			item.setAddress(commaString);
 			position = "";
 		}
 
